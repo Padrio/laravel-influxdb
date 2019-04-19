@@ -3,6 +3,7 @@
     "description": "InfluxDB implementation for Laravel.",
     "type": "package",
     "require": {
+        "php": "^7.0",
         "illuminate/support": "5.5 - 5.8",
         "influxdb/influxdb-php": "^1.14"
     },
@@ -24,10 +25,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Padrio\\InfluxDB\\ServiceProvider"
+                "Padrio\\InfluxDB\\Providers\\ServiceProvider"
             ],
             "aliases": {
-                "InfluxDb": "Padrio\\InfluxDB\\Facade"
+                "InfluxDB": "Padrio\\InfluxDB\\Facade"
             }
         }
     }

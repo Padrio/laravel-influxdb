@@ -1,6 +1,6 @@
 <?php
 
-namespace Padrio\InfluxDB;
+namespace Padrio\InfluxDB\Client;
 
 use InfluxDB\Client\Exception;
 use InfluxDB\Database;
@@ -8,10 +8,8 @@ use InfluxDB\Database;
 /**
  * @author Pascal Krason <p.krason@padr.io>
  */
-final class Client
+final class Factory
 {
-    const ALIAS = 'InfluxDB';
-
     /**
      * @return Database|\InfluxDB\Client
      * @throws Exception
@@ -20,9 +18,10 @@ final class Client
     {
         // Pre-Define Variables to avoid warnings
         $username = $password = $hostname = $port = $database = null;
+        $connection = config('influxdb.connection', []);
 
         // Fill previously defined variables with values from the config
-        extract(config('influxdb.connection'));
+        extract($connection);
 
         $timeout = config('influxdb.timeout') ?? 5;
         $verifySSl = config('influxdb.verify_ssl') ?? true;
@@ -56,8 +55,8 @@ final class Client
     /**
      * @return Database|\InfluxDB\Client
      */
-    public static function Instance()
+    public static function getInstance()
     {
-        return app(self::ALIAS);
+        return app('InfluxDB');
     }
 }

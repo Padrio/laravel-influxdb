@@ -1,14 +1,22 @@
 <?php
 
-namespace Padrio\InfluxDB;
+namespace Padrio\InfluxDB\Providers;
 
 use InfluxDB\Client\Exception;
+use InfluxDB\Database;
 
 /**
  * @author Pascal Krason <p.krason@padr.io>
  */
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
+    /**
+     * Indicates if loading of the provider is deferred.
+     *
+     * @var bool
+     */
+    protected $defer = true;
+
     /**
      * Bootstrap services.
      *
@@ -33,7 +41,19 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function register()
     {
-        $this->app->instance(Client::ALIAS, Client::create());
+        $this->app->instance('InfluxDB', Client\Factory::create());
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return [
+            Database::class,
+        ];
     }
 
 }

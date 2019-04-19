@@ -13,6 +13,6 @@ if (!function_exists('InfluxDB')) {
      */
     function InfluxDB()
     {
-        return Client::Instance();
+        return \Padrio\InfluxDB\Client\Factory::getInstance();
     }
 }
