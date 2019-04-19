@@ -42,6 +42,10 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function register()
     {
+        if(config('influxdb') === null) {
+            return;
+        }
+
         $this->app->instance('InfluxDB', Factory::create());
     }
 
