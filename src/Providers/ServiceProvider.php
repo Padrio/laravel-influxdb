@@ -30,7 +30,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         ]);
 
         $this->mergeConfigFrom(
-            __DIR__ . '/config/config.php', 'influxdb'
+            __DIR__ . '/../config/config.php', 'influxdb'
         );
     }
 
