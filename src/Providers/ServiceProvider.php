@@ -4,6 +4,7 @@ namespace Padrio\InfluxDB\Providers;
 
 use InfluxDB\Client\Exception;
 use InfluxDB\Database;
+use Padrio\InfluxDB\Client\Factory;
 
 /**
  * @author Pascal Krason <p.krason@padr.io>
@@ -41,7 +42,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function register()
     {
-        $this->app->instance('InfluxDB', Client\Factory::create());
+        $this->app->instance('InfluxDB', Factory::create());
     }
 
     /**
