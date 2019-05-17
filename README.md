@@ -1,3 +1,6 @@
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/padrio/laravel-influxdb.svg?color=%234c1)
+![Packagist](https://img.shields.io/packagist/dt/padrio/laravel-influxdb.svg?color=%234c1)
+
 # laravel-influxdb - Brings InfluxDB to your Laravel Application
 Licence: MIT  
 Author: Pascal Krason <p.krason@padr.io>  
